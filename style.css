@@ -1,0 +1,232 @@
+/* Base styles for Adventurer's Tome */
+/* Colour palette: warm parchment tones with dark brown accents */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: #f8f4e3;
+  color: #433a25;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #e9dfc7;
+  border-bottom: 2px solid #bda37d;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar (character list) */
+#character-list {
+  width: 240px;
+  background-color: #ede3ca;
+  border-right: 2px solid #bda37d;
+  padding: 1rem;
+  overflow-y: auto;
+  box-shadow: inset -2px 0 4px rgba(0,0,0,0.05);
+}
+#character-list h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+#character-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+#character-list li {
+  padding: 0.5rem;
+  margin-bottom: 0.25rem;
+  background-color: #f7f0dc;
+  border: 1px solid #cdb894;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#character-list li.selected {
+  background-color: #d9c7a3;
+  font-weight: bold;
+}
+#character-list li:hover {
+  background-color: #e0d2b0;
+}
+#character-list .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Character details/book */
+#character-details {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+#book {
+  background-color: #faf0de;
+  border: 2px solid #bda37d;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+}
+
+form fieldset {
+  border: 1px solid #cdb894;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #f7efdd;
+}
+form legend {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0 0.3rem;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+form input, form textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.3rem;
+  border: 1px solid #bda37d;
+  border-radius: 4px;
+  background-color: #fff8e9;
+  color: #433a25;
+}
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: #8b5e3c;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+
+.three-column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.six-column {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.3rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.5rem;
+}
+th, td {
+  border: 1px solid #cdb894;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+th {
+  background-color: #e6d6b5;
+  text-align: left;
+  font-weight: bold;
+}
+td button {
+  background-color: #b55443;
+  border: none;
+  color: #fff8e9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+td button:hover {
+  background-color: #933f35;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.primary {
+  background-color: #8b5e3c;
+  color: #fff8e9;
+}
+.primary:hover {
+  background-color: #744930;
+}
+.secondary {
+  background-color: #a67c52;
+  color: #fff8e9;
+}
+.secondary:hover {
+  background-color: #8c6741;
+}
+.danger {
+  background-color: #b55443;
+  color: #fff8e9;
+}
+.danger:hover {
+  background-color: #933f35;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
+  }
+  #character-list {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #bda37d;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.05);
+  }
+  .three-column, .six-column {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}

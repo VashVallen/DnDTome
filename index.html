@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icon-192x192.png" />
+    <title>Adventurer's Tome</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Adventurer's Tome</h1>
+      </header>
+      <main>
+        <aside id="character-list" aria-label="Character list">
+          <h2>Characters</h2>
+          <ul id="charList"></ul>
+          <div class="buttons">
+            <button id="newCharBtn" class="primary">+ New Character</button>
+            <button id="importCharBtn" class="secondary">Import</button>
+            <input type="file" id="importFile" accept="application/json" hidden />
+          </div>
+        </aside>
+        <section id="character-details" aria-label="Character details">
+          <div id="book">
+            <form id="characterForm">
+              <fieldset>
+                <legend>Basics</legend>
+                <div class="two-column">
+                  <label>
+                    Name<br />
+                    <input type="text" id="charName" required />
+                  </label>
+                  <label>
+                    Class<br />
+                    <input type="text" id="charClass" />
+                  </label>
+                  <label>
+                    Race<br />
+                    <input type="text" id="charRace" />
+                  </label>
+                  <label>
+                    Level<br />
+                    <input type="number" min="1" id="charLevel" />
+                  </label>
+                  <label>
+                    Background<br />
+                    <input type="text" id="charBackground" />
+                  </label>
+                  <label>
+                    Alignment<br />
+                    <input type="text" id="charAlignment" />
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Statistics</legend>
+                <div class="six-column stats">
+                  <label>
+                    STR<br />
+                    <input type="number" min="1" max="30" id="statStr" />
+                  </label>
+                  <label>
+                    DEX<br />
+                    <input type="number" min="1" max="30" id="statDex" />
+                  </label>
+                  <label>
+                    CON<br />
+                    <input type="number" min="1" max="30" id="statCon" />
+                  </label>
+                  <label>
+                    INT<br />
+                    <input type="number" min="1" max="30" id="statInt" />
+                  </label>
+                  <label>
+                    WIS<br />
+                    <input type="number" min="1" max="30" id="statWis" />
+                  </label>
+                  <label>
+                    CHA<br />
+                    <input type="number" min="1" max="30" id="statCha" />
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Combat</legend>
+                <div class="three-column">
+                  <label>
+                    Hit Points<br />
+                    <input type="number" min="0" id="charHP" />
+                  </label>
+                  <label>
+                    Armour Class<br />
+                    <input type="number" min="0" id="charAC" />
+                  </label>
+                  <label>
+                    Speed<br />
+                    <input type="number" min="0" id="charSpeed" />
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Spells</legend>
+                <table id="spellsTable">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Level</th>
+                      <th>Description</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="spellsBody"></tbody>
+                </table>
+                <button type="button" id="addSpellBtn" class="secondary">Add Spell</button>
+              </fieldset>
+              <fieldset>
+                <legend>Inventory</legend>
+                <table id="itemsTable">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Qty</th>
+                      <th>Description</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="itemsBody"></tbody>
+                </table>
+                <button type="button" id="addItemBtn" class="secondary">Add Item</button>
+              </fieldset>
+              <div class="form-buttons">
+                <button type="button" id="saveCharBtn" class="primary">Save Character</button>
+                <button type="button" id="exportCharBtn" class="secondary">Export</button>
+                <button type="button" id="deleteCharBtn" class="danger">Delete</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
